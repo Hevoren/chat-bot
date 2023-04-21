@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    margin: auto;
+    padding: auto;
+}
+
+body {
+    font-family: "Montserrat";
+    color: white;
+    background-color: black;
+}
+
+.forms {
+    margin-top: 100px;
+    width: 400px;
+}
+
+.forms div h1 {
+    text-align: center;
+}
+
+.forms input {
+    color: #019697;
+    border-radius: 10px;
+    border: 2px solid #91bfcb;
+    box-shadow: none;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    font-weight: bold;
+}
+
+input:focus {
+    color: #019697;
+    font-weight: bold;
+}
+
+.forms button {
+    background-color: #81bece;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    transition: 300ms;
+}
+
+button:hover {
+    color: white;
+    background-color: #91bfcb;
+    cursor: pointer;
+}
+
+.tabs {
+    margin: auto;
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+}
+
+.tabs input {
+    background-color: black;
+    border: none;
+    color: white;
+    font-size: 35px;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    transition: 300ms;
+}
+
+.tabs input.active {
+    color: #81bece;
+    font-weight: bold;
+}
+
+#login-form {
+    display: none;
+}
+
+/* ----------------- */
+
+.register-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ----------------- */
+
+.login-form div {
+    display: flex;
+    flex-direction: column;
+}
