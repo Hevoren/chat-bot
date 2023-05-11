@@ -7,6 +7,10 @@
     color: white;
 }
 
+*::selection {
+    background-color: #720f0f;
+}
+
 body {
     font-family: "Montserrat", serif;
     color: white;
@@ -126,6 +130,7 @@ footer div {
 }
 
 .input-type-item:focus {
+    box-shadow: 0 0 20px #ea2121;
     outline: none;
 }
 
@@ -172,4 +177,80 @@ footer div {
 
 .hello-flex p {
     font-size: 32px;
+}
+
+/*----------------------------------------------*/
+/*CHAT*/
+
+.chat-flex {
+    width: 800px;
+    height: 500px;
+    margin-top: 100px;
+    border: 3px solid #ea2121;
+    box-shadow: 0 0 30px #a61717;
+    border-radius: 15px;
+}
+
+.chat-flex-window {
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-flex-dialog {
+    margin: 0;
+    min-height: 440px;
+    height: 88%;
+}
+
+.bot-message {
+    margin-top: 10px;
+    margin-left: 10px;
+    text-align: left;
+}
+
+.message {
+    margin-top: 20px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.chat-flex-input {
+    min-height: 60px;
+    height: 12%;
+}
+
+.chat-flex-input form{
+    height: 55px;
+}
+
+.chat-flex-input-label {
+    display: flex;
+    min-width: 460px;
+    min-height: 50px;
+    border: 2px solid white;
+    border-radius: 15px;
+}
+
+.input-message {
+    height: 40px;
+    width: 400px;
+    outline: none;
+    border: none;
+    background: none;
+}
+
+.input-submit-message {
+    height: 35px;
+    width: 35px;
+    background: #ea2121;
+    box-shadow: 0 0 15px #ea2121;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.input-submit-message:hover {
+    background-color: #720f0f;
+    cursor: pointer;
 }
