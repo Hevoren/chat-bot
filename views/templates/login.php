@@ -1,7 +1,5 @@
 <?php
-    session_start();
-    $errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : null;
-    unset($_SESSION['errors']);
+    $errors = isset($_GET['errors']) ? unserialize(urldecode($_GET['errors'])) : null;
 ?>
 
 <main>

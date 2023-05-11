@@ -31,7 +31,6 @@ class Database
         return ['status' => 'ok', 'user' => [
             'user_id' => $user['user_id'],
             'login' => $user['login'],
-            'status_id' => $user['status_id'],
             'userHash' => $userHash
         ]
         ];
