@@ -1,93 +1,175 @@
+/*----------------------------------------------*/
+/*GENERAL*/
+
 * {
     box-sizing: border-box;
     margin: auto;
-    padding: auto;
+    color: white;
 }
 
 body {
-    font-family: "Montserrat";
+    font-family: "Montserrat", serif;
     color: white;
     background-color: black;
 }
 
-.forms {
-    margin-top: 100px;
-    width: 400px;
+a {
+    text-decoration: none;
 }
 
-.forms div h1 {
-    text-align: center;
+header {
+    background-color: rgb(17, 17, 17);
+    height: 7vh;
 }
 
-.forms input {
-    color: #019697;
-    border-radius: 10px;
-    border: 2px solid #91bfcb;
-    box-shadow: none;
-    margin-top: 10px;
-    padding: 10px;
-    width: 100%;
-    font-weight: bold;
-}
-
-input:focus {
-    color: #019697;
-    font-weight: bold;
-}
-
-.forms button {
-    background-color: #81bece;
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 10px;
-    width: 100%;
-    transition: 300ms;
-}
-
-button:hover {
-    color: white;
-    background-color: #91bfcb;
-    cursor: pointer;
-}
-
-.tabs {
-    margin: auto;
-    width: 400px;
+.header {
+    height: 7vh;
     display: flex;
     flex-direction: row;
 }
 
-.tabs input {
+.header-title {
+    text-align: center;
+    width: 50%;
+}
+
+.header-title a {
+    font-size: 32px;
+}
+
+.header-menu {
+    text-align: center;
+    width: 50%;
+}
+
+.header-menu a {
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+.header-menu a:hover {
+    color: #a61717;
+}
+
+/*---*/
+
+main {
     background-color: black;
+    min-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+}
+
+/*---*/
+
+footer {
+    background-color: black;
+}
+
+footer div {
+    background-color: rgb(17, 17, 17);
+    height: 5vh;
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+}
+
+/*----------------------------------------------*/
+/*LOGIN*/
+
+.main-form{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    margin-top: 200px;
+}
+
+.form-block {
+    margin: 0;
+    width: 350px;
+}
+
+.form-block-title {
+    text-align: center;
+    font-size: 32px;
+}
+
+.form-block form {
+    margin-top: 10px;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-type {
+    height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    border: 2px solid #a61717;
+    box-shadow: none;
+    margin-top: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-type-item {
+    background: none;
     border: none;
     color: white;
-    font-size: 35px;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+}
+
+.input-type-item:focus {
+    outline: none;
+}
+
+.input-type:focus {
+    box-shadow: none;
+}
+
+.input-submit {
+    border: none;
+    cursor: pointer;
     border-radius: 10px;
     margin-top: 10px;
     padding: 10px;
     width: 100%;
-    transition: 300ms;
+    background-color: #a61717;
+    transition: 0.5s;
 }
 
-.tabs input.active {
-    color: #81bece;
-    font-weight: bold;
+.input-submit:hover {
+    background-color: #720f0f;
 }
 
-#login-form {
-    display: none;
+.offer-a {
+    margin-top: 20px;
+    color: #ea2121;
+    transition: 0.5s;
 }
 
-/* ----------------- */
+.offer-a:hover {
+    color: #a61717;
+}
 
-.register-form div {
+/*----------------------------------------------*/
+/*HELLO*/
+
+.hello-flex {
     display: flex;
     flex-direction: column;
 }
 
-/* ----------------- */
+.hello-flex p span {
+    color: #a61717;
+}
 
-.login-form div {
-    display: flex;
-    flex-direction: column;
+.hello-flex p {
+    font-size: 32px;
 }

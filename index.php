@@ -1,45 +1,26 @@
-<!DOCTYPE html>
-<html lang="ru">
+<?php
+    require_once 'core/functions.php';
+    $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $string = $path;
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
-    <script defer src="scripts/script.js"></script>
-</head>
+    if (isset($_GET['page'])) {
+        $page = $_GET['page'];
+        if ($page === "login") {
+            $page_content = renderTemplate('views/templates/login.php');
+        }
 
-<body>
-    <div class="tabs">
-        <input type="submit" value="Log In" onclick="showLoginForm()">
-        <input type="submit" value="Sign In" onclick="showRegisterForm()">
-    </div>
-    <div class="forms">
-        <div id="register-form">
-            <h1>Sign Up</h1>
-            <form class="register-form" action="" id="register-form-child">
-                <div>
-                    <input type="text" name="name" id="name" placeholder="Name" />
-                    <input type="text" name="login" id="login" placeholder="Login" />
-                    <input type="password" name="password" id="password" placeholder="Password" />
-                </div>
-                <button type="submit">Sign In</button>
-            </form>
-        </div>
-        <div id="login-form">
-            <h1>Log In</h1>
-            <form class="login-form" id="login-form-child">
-                <div>
-                    <input type="text" name="login" id="login-reg" placeholder="Login" />
-                    <input type="password" name="password" id="password-reg" placeholder="Password" />
-                </div>
-                <button type="submit">Log In</button>
-            </form>
-        </div>
-    </div>
+        if ($page === 'hello') {
+            $page_content = renderTemplate('views/templates/hello.php');
+        }
 
-</body>
+        if ($page === 'register') {
+            $page_content = renderTemplate('views/templates/register.php');
+        }
+    }else{
+        $page_content = renderTemplate('views/templates/hello.php');
+    }
 
-</html>
+    $layout_content = renderTemplate('views/layouts/main.php',
+        ['content' => $page_content]);
+
+    print($layout_content);
