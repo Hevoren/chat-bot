@@ -1,8 +1,6 @@
 <?php
     require_once 'core/functions.php';
     $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-    $string = $path;
-
     if (isset($_GET['page'])) {
         $page = $_GET['page'];
         if ($page === "login") {
