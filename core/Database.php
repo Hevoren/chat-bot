@@ -82,6 +82,21 @@ class Database
         }
     }
 
+    public function sendMessage($user_id, $message)
+    {
+        if (empty($message)) {
+            return ['status' => 'error', 'errors' => ['Пусто']];
+        }
+        $query = "INSERT INTO messages SET user_id='$user_id', message='$message'";
+        $result = mysqli_query($this->link, $query);
+
+        if ($result) {
+            return ['status' => 'success', 'user' => $result];
+        } else {
+            return ['status' => 'error', 'errors' => ['Ошибка отправки сообщения']];
+        }
+    }
+
     public function getUserByLogin($login)
     {
         $query = "SELECT * FROM users WHERE login='$login'";

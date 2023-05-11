@@ -1,3 +1,7 @@
+<?php
+    $user_id = $_SESSION['user_id'];
+?>
+
 <main>
     <div class="chat-flex">
         <div class="chat-flex-window">
@@ -10,9 +14,14 @@
                 </div>
             </div>
             <div class="chat-flex-input">
-                <form>
+                <form action="/handlers/controllers.php" method="post">
                     <label class="chat-flex-input-label">
-                        <input class="input-message" type="text">
+                        <input class="input-message" name="message" type="text">
+
+                        <input type="hidden" name="type" value="send">
+
+                        <input type="hidden" name="user_id" value="<?= $user_id ?>">
+
                         <input class="input-submit-message" type="submit" value="&#10150;">
                     </label>
                 </form>

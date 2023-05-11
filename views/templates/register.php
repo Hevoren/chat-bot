@@ -14,7 +14,7 @@
                     </ul>
                 </div>
             <?php endif; ?>
-            <form action="/handlers/auth.php" method="post">
+            <form action="/handlers/controllers.php" method="post">
                 <div class="input-wrapper">
                     <label class="input-type">
                         <input required class="input-type-item" type="text" placeholder="Name" name="name" id="name">
