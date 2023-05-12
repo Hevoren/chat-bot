@@ -203,15 +203,44 @@ footer div {
 }
 
 .bot-message {
+    background-color: rgb(40, 40, 40);
+    min-height: 40px;
+    height: auto;
+    max-width: 400px;
+    border-radius: 15px;
     margin-top: 10px;
     margin-left: 10px;
     text-align: left;
+    padding: 10px;
+}
+
+.bot-message p {
+    word-wrap: break-word;
+    hyphens: auto;
+    font-size: 16px;
+    margin: 0;
+    color: white;
+    line-height: 1.5;
 }
 
 .message {
+    background-color: rgb(40, 40, 40);
+    min-height: 40px;
+    height: auto;
+    max-width: 400px;
+    border-radius: 15px;
     margin-top: 20px;
     margin-right: 10px;
-    text-align: right;
+    padding: 10px;
+}
+
+.message p {
+    word-wrap: break-word;
+    hyphens: auto;
+    font-size: 16px;
+    margin: 0;
+    color: white;
+    line-height: 1.5;
 }
 
 .chat-flex-input {
