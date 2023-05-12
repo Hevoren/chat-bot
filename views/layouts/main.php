@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -9,7 +6,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Document</title>
-    <link rel="stylesheet" href="/assets/css/style.css"/>
+    <link rel="stylesheet" href="/public/assets/css/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
 </head>
 
@@ -17,14 +14,14 @@ session_start();
 <header>
     <div class="header">
         <div class="header-title">
-            <a href="index.php?page=hello">Gabella Bot</a>
+            <a href="/public/index.php?page=hello">Gabella Bot</a>
         </div>
 
         <div class="header-menu">
             <?php if (isset($_SESSION['user_id'])) { ?>
-                <a href="index.php?page=exit">Exit</a>
+                <a href="/public/index.php?page=exit">Exit</a>
             <?php } else { ?>
-                <a href="index.php?page=login">Sign In</a>
+                <a href="/public/index.php?page=login">Sign In</a>
             <?php } ?>
         </div>
     </div>

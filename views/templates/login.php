@@ -29,7 +29,7 @@
                     <input type="hidden" name="type" value="login">
 
                     <input class="input-submit" type="submit" value="submit">
-                    <a class="offer-a" href="index.php?page=register"> Need an account?</a>
+                    <a class="offer-a" href="/public/index.php?page=register"> Need an account?</a>
                 </div>
             </form>
 

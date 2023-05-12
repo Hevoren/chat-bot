@@ -97,6 +97,20 @@ class Database
         }
     }
 
+    public function getMessages()
+    {
+        $user_id = $_SESSION['user_id'];
+        $query = "SELECT message FROM messages WHERE user_id='$user_id'";
+        $result = mysqli_query($this->link, $query);
+        $messages = [];
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $messages[] = $row;
+            }
+        }
+        return $messages;
+    }
+
     public function getUserByLogin($login)
     {
         $query = "SELECT * FROM users WHERE login='$login'";

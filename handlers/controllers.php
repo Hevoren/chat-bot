@@ -1,6 +1,7 @@
 <?php
-require_once('../core/Database.php');
-include_once '../config/dbstart.php';
+require_once __DIR__ . '/../core/Database.php';
+require_once __DIR__ . '/../config/path.php';
+include_once __DIR__ . '/../config/dbstart.php';
 
 $errors = null;
 if ($_POST['type'] === 'register') {
@@ -10,11 +11,11 @@ if ($_POST['type'] === 'register') {
     $isSuccess = $db->registerUser($name, $login, $password);
     if ($isSuccess['status'] === 'error') {
         $errors = $isSuccess['errors'];
-        $url = "/index.php?page=register&errors=" . urlencode(serialize($errors));
+        $url = "/public/index.php?page=register&errors=" . urlencode(serialize($errors));
         header('Location: ' . $url);
         exit;
     }
-    header('Location: /index.php?page=register');
+    header('Location: ' . $basepath . '/public/index.php?page=register');
     exit;
 }
 
@@ -25,13 +26,13 @@ if ($_POST['type'] === 'login') {
 
     if ($isSuccess['status'] === 'error') {
         $errors = $isSuccess['errors'];
-        $url = "/index.php?page=login&errors=" . urlencode(serialize($errors));
+        $url = "/public/index.php?page=login&errors=" . urlencode(serialize($errors));
         header('Location: ' . $url);
         exit;
     } else {
         session_start(); // начинаем сессию
         $_SESSION['user_id'] = $isSuccess['user']['user_id'];
-        header('Location: /index.php?page=chat');
+        header('Location: /public/index.php?page=chat');
     }
 }
 
@@ -39,7 +40,7 @@ if ($_POST['type'] === 'send') {
     $user_id = $_POST['user_id'];
     $message = $_POST['message'];
     $ifSuccess = $db->sendMessage($user_id, $message);
-    header('Location: /index.php?page=chat');
+    header('Location: /public/index.php?page=chat');
     exit;
 }
 

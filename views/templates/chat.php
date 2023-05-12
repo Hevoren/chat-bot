@@ -1,5 +1,5 @@
 <?php
-    $user_id = $_SESSION['user_id'];
+$user_id = $_SESSION['user_id'];
 ?>
 
 <main>
@@ -9,9 +9,13 @@
                 <div class="bot-message">
                     <p>Lorem apsdasdjklhjaslkd asdfalkjshdfkl asdlfkjhasdjflk</p>
                 </div>
-                <div class="message">
-                    <p>Lorem apsdasdjklhjaslkd asdfalkjshdfkl asdlfkjhasdjflk</p>
-                </div>
+                <?php foreach ($messages as $message) { ?>
+                    <?php foreach ($message as $messag) { ?>
+                        <div class="message">
+                            <p><?= $messag ?></p>
+                        </div>
+                    <?php } ?>
+                <?php } ?>
             </div>
             <div class="chat-flex-input">
                 <form action="/handlers/controllers.php" method="post">
