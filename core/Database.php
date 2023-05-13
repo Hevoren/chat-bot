@@ -1,5 +1,7 @@
 <?php
 
+require_once '../core/Answers.php';
+
 class Database
 {
     private $link = null;
@@ -90,11 +92,27 @@ class Database
         $query = "INSERT INTO messages SET user_id='$user_id', message='$message'";
         $result = mysqli_query($this->link, $query);
 
+        $query = "SELECT message FROM messages WHERE user_id='$user_id' ORDER BY timestamp DESC LIMIT 1";
+        $result = mysqli_query($this->link, $query);
+
+        $messages = mysqli_fetch_assoc($result);
+
+        foreach ($messages as $message) {
+            $messages = $message;
+        }
+
+        $botAnswers = new Answers();
+        $result = $botAnswers->answers($messages);
+
+        $query = "INSERT INTO botmessages SET user_id='$user_id', botmessage='$result'";
+        $result = mysqli_query($this->link, $query);
+
         if ($result) {
             return ['status' => 'success', 'user' => $result];
         } else {
             return ['status' => 'error', 'errors' => ['Ошибка отправки сообщения']];
         }
+
     }
 
     public function getMessages()
@@ -109,6 +127,20 @@ class Database
             }
         }
         return $messages;
+    }
+
+    public function getBotMessages()
+    {
+        $user_id = $_SESSION['user_id'];
+        $query = "SELECT botmessage FROM botmessages WHERE user_id='$user_id'";
+        $result = mysqli_query($this->link, $query);
+        $botmessages = [];
+        if ($result) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $botmessages[] = $row;
+            }
+        }
+        return $botmessages;
     }
 
     public function getUserByLogin($login)

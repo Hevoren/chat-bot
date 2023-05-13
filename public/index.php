@@ -23,7 +23,8 @@ if (isset($_GET['page'])) {
             $page_content = $renderer->renderTemplate($basepath . 'views/templates/hello.php');
         } else {
             $messages = $db->getMessages();
-            $page_content = $renderer->renderTemplate($basepath . 'views/templates/chat.php', ['messages' => $messages]);
+            $botmessages = $db->getBotMessages();
+            $page_content = $renderer->renderTemplate($basepath . 'views/templates/chat.php', ['messages' => $messages, 'botmessages' => $botmessages]);
         }
     }
 
@@ -38,7 +39,8 @@ if (isset($_GET['page'])) {
     if ($page === 'chat') {
         if (isset($_SESSION['user_id'])) {
             $messages = $db->getMessages();
-            $page_content = $renderer->renderTemplate($basepath . 'views/templates/chat.php', ['messages' => $messages]);
+            $botmessages = $db->getBotMessages();
+            $page_content = $renderer->renderTemplate($basepath . 'views/templates/chat.php', ['messages' => $messages, 'botmessages' => $botmessages]);
         } else {
             $page_content = $renderer->renderTemplate($basepath . 'views/templates/hello.php');
         }
@@ -55,7 +57,7 @@ if (isset($_GET['page'])) {
     $page_content = $renderer->renderTemplate($basepath . 'views/templates/hello.php');
 }
 
-$layout_content = $renderer->renderTemplate(  $basepath . 'views/layouts/main.php',
+$layout_content = $renderer->renderTemplate($basepath . 'views/layouts/main.php',
     ['content' => $page_content]);
 
 print($layout_content);

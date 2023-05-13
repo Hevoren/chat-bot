@@ -6,16 +6,15 @@ $user_id = $_SESSION['user_id'];
     <div class="chat-flex">
         <div class="chat-flex-window">
             <div class="chat-flex-dialog">
-                <div class="bot-message">
-                    <p>Lorem apsdasdjklhjaslkd asdfalkjshdfkl asdlfkjhasdjflk</p>
-                </div>
-                <?php foreach ($messages as $message) { ?>
-                    <?php foreach ($message as $messag) { ?>
-                        <div class="message">
-                            <p><?= $messag ?></p>
-                        </div>
-                    <?php } ?>
-                <?php } ?>
+                <?php
+                for ($i = 0; $i < count($messages); $i++) { ?>
+                    <div class="message">
+                       <p><?= $messages[$i] ["message"] ?></p>
+                    </div>
+                    <div class="bot-message">
+                        <p><?= $botmessages[$i] ["botmessage"] ?></p>
+                    </div>
+              <?php  } ?>
             </div>
             <div class="chat-flex-input">
                 <form action="/handlers/controllers.php" method="post">

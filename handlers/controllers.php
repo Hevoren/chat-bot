@@ -15,7 +15,7 @@ if ($_POST['type'] === 'register') {
         header('Location: ' . $url);
         exit;
     }
-    header('Location: ' . $basepath . '/public/index.php?page=register');
+    header('Location: /public/index.php?page=register');
     exit;
 }
 
