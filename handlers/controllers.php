@@ -44,4 +44,11 @@ if ($_POST['type'] === 'send') {
     exit;
 }
 
+if ($_POST['type'] === 'clear') {
+    $user_id = $_POST['user_id'];
+    $ifSuccess = $db->clearHistory($user_id);
+    header('Location: /public/index.php?page=chat');
+    exit;
+}
+
 

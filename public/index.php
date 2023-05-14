@@ -48,7 +48,9 @@ if (isset($_GET['page'])) {
 
     if ($page === 'exit') {
         if (isset($_SESSION['user_id'])) {
-            $page_content = $renderer->renderTemplate($basepath . 'views/templates/exit.php');
+            session_unset();
+            session_destroy();
+            $page_content = $renderer->renderTemplate($basepath . 'views/templates/hello.php');
         } else {
             $page_content = $renderer->renderTemplate($basepath . 'views/templates/hello.php');
         }

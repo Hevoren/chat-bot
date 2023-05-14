@@ -9,15 +9,20 @@ $user_id = $_SESSION['user_id'];
                 <?php
                 for ($i = 0; $i < count($messages); $i++) { ?>
                     <div class="message">
-                       <p><?= $messages[$i] ["message"] ?></p>
+                        <p class="message-item"><?= $messages[$i] ["message"] ?></p>
+                        <p class="message-item2">you</p>
                     </div>
                     <div class="bot-message">
                         <p><?= $botmessages[$i] ["botmessage"] ?></p>
                     </div>
-              <?php  } ?>
+
+                <?php } ?>
+                <div class="hiden-block" id="last-message">
+
+                </div>
             </div>
             <div class="chat-flex-input">
-                <form action="/handlers/controllers.php" method="post">
+                <form action="/handlers/controllers.php" method="post" class="form-send-message">
                     <label class="chat-flex-input-label">
                         <input class="input-message" name="message" type="text">
 
@@ -27,6 +32,11 @@ $user_id = $_SESSION['user_id'];
 
                         <input class="input-submit-message" type="submit" value="&#10150;">
                     </label>
+                </form>
+                <form action="/handlers/controllers.php" method="post" class="form-clear-history">
+                    <input type="hidden" name="type" value="clear">
+                    <input type="hidden" name="user_id" value="<?= $user_id ?>">
+                    <input type="submit" class="clear-history-button" value="Clear">
                 </form>
             </div>
         </div>

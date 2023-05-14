@@ -184,7 +184,7 @@ footer div {
 
 .chat-flex {
     width: 800px;
-    height: 500px;
+    height: 510px;
     margin-top: 100px;
     border: 3px solid #ea2121;
     box-shadow: 0 0 30px #a61717;
@@ -253,9 +253,12 @@ footer div {
     margin-top: 20px;
     margin-right: 10px;
     padding: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
-.message p {
+.message-item {
+    width: 90%;
     word-wrap: break-word;
     hyphens: auto;
     font-size: 16px;
@@ -264,18 +267,30 @@ footer div {
     line-height: 1.5;
 }
 
-.chat-flex-input {
-    min-height: 60px;
-    height: 12%;
+.message-item2 {
+    width: 10%;
+    word-wrap: break-word;
+    hyphens: auto;
+    font-size: 16px;
+    margin: 0;
+    line-height: 1.5;
+    color: #9d9d9d;
+    opacity: 40%;
 }
 
-.chat-flex-input form{
-    height: 55px;
+.chat-flex-input {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    min-height: 60px;
+    height: 12%;
+    text-align: center;
 }
 
 .chat-flex-input-label {
     display: flex;
     min-width: 460px;
+    max-width: 460px;
     min-height: 50px;
     border: 2px solid white;
     border-radius: 15px;
@@ -301,6 +316,34 @@ footer div {
 }
 
 .input-submit-message:hover {
-    background-color: #720f0f;
+    background-color: white;
+    color: #ea2121;
+    cursor: pointer;
+}
+
+.form-send-message {
+    height: 55px;
+}
+
+.form-clear-history {
+    position: absolute;
+    margin-left: 700px;
+    margin-top: 15px;
+}
+
+.clear-history-button {
+    display: inline;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: white;
+    transition: 0.5s;
+}
+
+.clear-history-button:hover {
+    background: none;
+    border: none;
+    color: #ea2121;
     cursor: pointer;
 }

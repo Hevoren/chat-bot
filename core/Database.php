@@ -1,6 +1,6 @@
 <?php
 
-require_once '../core/Answers.php';
+require_once __DIR__ . '/../core/Answers.php';
 
 class Database
 {
@@ -152,6 +152,20 @@ class Database
             return $user;
         } else {
             return false;
+        }
+    }
+
+    public function clearHistory($user_id)
+    {
+        $query = "DELETE FROM messages WHERE user_id='$user_id'";
+        $result = mysqli_query($this->link, $query);
+        $query = "DELETE FROM botmessages WHERE user_id='$user_id'";
+        $result = mysqli_query($this->link, $query);
+
+        if ($result) {
+            return ['status' => 'success', 'user' => $result];
+        } else {
+            return ['status' => 'error', 'errors' => ['Ошибка удаления']];
         }
     }
 }

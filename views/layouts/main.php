@@ -8,6 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="/public/assets/css/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
+    <script defer src="/public/assets/scripts/script.js"></script>
 </head>
 
 <body>

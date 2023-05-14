@@ -20,6 +20,16 @@ class ComposerStaticInit3a88eb4ab780b495a6e6ddcbe2453815
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'N' => 
+        array (
+            'NlpTools\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/nlp-tools/nlp-tools/src',
+            ),
+        ),
+    );
+
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -29,6 +39,7 @@ class ComposerStaticInit3a88eb4ab780b495a6e6ddcbe2453815
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit3a88eb4ab780b495a6e6ddcbe2453815::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit3a88eb4ab780b495a6e6ddcbe2453815::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit3a88eb4ab780b495a6e6ddcbe2453815::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit3a88eb4ab780b495a6e6ddcbe2453815::$classMap;
 
         }, null, ClassLoader::class);
