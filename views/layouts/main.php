@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/public/assets/css/style.css"/>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/>
     <script defer src="/public/assets/scripts/script.js"></script>
+    <script defer src="/public/assets/scripts/send.js"></script>
 </head>
 
 <body>

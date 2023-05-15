@@ -37,9 +37,14 @@ if ($_POST['type'] === 'login') {
 }
 
 if ($_POST['type'] === 'send') {
+
+    $state = $_COOKIE["state"];
+    if ($state === null){
+        $state = 'gpt';
+    }
     $user_id = $_POST['user_id'];
     $message = $_POST['message'];
-    $ifSuccess = $db->sendMessage($user_id, $message);
+    $ifSuccess = $db->sendMessage($user_id, $message, $state);
     header('Location: /public/index.php?page=chat');
     exit;
 }

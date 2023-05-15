@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../core/Answers.php';
+require_once __DIR__ . '/../core/Bot.php';
 
 class Database
 {
@@ -84,7 +85,7 @@ class Database
         }
     }
 
-    public function sendMessage($user_id, $message)
+    public function sendMessage($user_id, $message, $state)
     {
         if (empty($message)) {
             return ['status' => 'error', 'errors' => ['Пусто']];
@@ -98,17 +99,26 @@ class Database
         $messages = mysqli_fetch_assoc($result);
 
         foreach ($messages as $message) {
-            $messages = $message;
+            $question = $message;
         }
 
-        $botAnswers = new Answers();
-        $result = $botAnswers->answers($messages);
+        if($state === 'gpt') {
+            $apiKey = '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';
 
-        $query = "INSERT INTO botmessages SET user_id='$user_id', botmessage='$result'";
-        $result = mysqli_query($this->link, $query);
 
-        if ($result) {
-            return ['status' => 'success', 'user' => $result];
+            $bot = new Bot($apiKey);
+
+            $answer = $bot->answerBot($question);
+        }
+        elseif ($state === 'gabella') {
+            $botAnswers = new Answers();
+            $answer = $botAnswers->answers($question);
+        }
+        $query = "INSERT INTO botmessages SET user_id='$user_id', botmessage='$answer'";
+        $answer = mysqli_query($this->link, $query);
+
+        if ($answer) {
+            return ['status' => 'success', 'user' => $answer];
         } else {
             return ['status' => 'error', 'errors' => ['Ошибка отправки сообщения']];
         }
