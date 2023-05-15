@@ -103,8 +103,7 @@ class Database
         }
 
         if($state === 'gpt') {
-            $apiKey = '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';
-
+            $apiKey = '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';
 
             $bot = new Bot($apiKey);
 

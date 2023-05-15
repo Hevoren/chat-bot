@@ -11,11 +11,11 @@ if ($_POST['type'] === 'register') {
     $isSuccess = $db->registerUser($name, $login, $password);
     if ($isSuccess['status'] === 'error') {
         $errors = $isSuccess['errors'];
-        $url = "/public/index.php?page=register&errors=" . urlencode(serialize($errors));
+        $url = $pathes . "public/index.php?page=register&errors=" . urlencode(serialize($errors));
         header('Location: ' . $url);
         exit;
     }
-    header('Location: /public/index.php?page=register');
+    header('Location: ' . $pathes . 'public/index.php?page=register');
     exit;
 }
 
@@ -26,13 +26,13 @@ if ($_POST['type'] === 'login') {
 
     if ($isSuccess['status'] === 'error') {
         $errors = $isSuccess['errors'];
-        $url = "/public/index.php?page=login&errors=" . urlencode(serialize($errors));
+        $url = $pathes . "public/index.php?page=login&errors=" . urlencode(serialize($errors));
         header('Location: ' . $url);
         exit;
     } else {
         session_start(); // начинаем сессию
         $_SESSION['user_id'] = $isSuccess['user']['user_id'];
-        header('Location: /public/index.php?page=chat');
+        header('Location: ' . $pathes .  'public/index.php?page=chat');
     }
 }
 
@@ -45,14 +45,14 @@ if ($_POST['type'] === 'send') {
     $user_id = $_POST['user_id'];
     $message = $_POST['message'];
     $ifSuccess = $db->sendMessage($user_id, $message, $state);
-    header('Location: /public/index.php?page=chat');
+    header('Location: ' . $pathes . 'public/index.php?page=chat');
     exit;
 }
 
 if ($_POST['type'] === 'clear') {
     $user_id = $_POST['user_id'];
     $ifSuccess = $db->clearHistory($user_id);
-    header('Location: /public/index.php?page=chat');
+    header('Location: ' . $pathes . 'public/index.php?page=chat');
     exit;
 }
 

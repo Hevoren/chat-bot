@@ -1,4 +1,5 @@
 <?php
+    require (__DIR__ . '/../../config/path.php');
     $errors = isset($_GET['errors']) ? unserialize(urldecode($_GET['errors'])) : null;
 ?>
 <main>
@@ -14,7 +15,7 @@
                     </ul>
                 </div>
             <?php endif; ?>
-            <form action="/handlers/controllers.php" method="post">
+            <form action="<?= $pathes ?>handlers/controllers.php" method="post">
                 <div class="input-wrapper">
                     <label class="input-type">
                         <input required class="input-type-item" type="text" placeholder="Name" name="name" id="name">
@@ -32,7 +33,7 @@
                     <input type="hidden" name="type" value="register">
 
                     <input class="input-submit" type="submit" value="submit">
-                    <a class="offer-a" href="/public/index.php?page=login"> Already registered?</a>
+                    <a class="offer-a" href="<?= $pathes ?>public/index.php?page=login"> Already registered?</a>
                 </div>
             </form>
 

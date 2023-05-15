@@ -1,4 +1,5 @@
 <?php
+require (__DIR__ . '/../../config/path.php');
 $user_id = $_SESSION['user_id'];
 ?>
 
@@ -13,7 +14,7 @@ $user_id = $_SESSION['user_id'];
                     <button class="gpt-button" id="button2" onclick="gpt()">GPT</button>
                 </div>
                 <div class="gpt-block-img">
-                    <img class="logo-gpt" src="/public/assets/img/chatgpt-icon.svg" alt="gabella">
+                    <img class="logo-gpt" src="<?= $pathes ?>public/assets/img/chatgpt-icon.svg" alt="gabella">
                 </div>
 
             </div>
@@ -37,7 +38,7 @@ $user_id = $_SESSION['user_id'];
                     </div>
                 </div>
                 <div class="chat-flex-input">
-                    <form action="/handlers/controllers.php" method="post" class="form-send-message">
+                    <form action="<?= $pathes ?>handlers/controllers.php" method="post" class="form-send-message">
                         <label class="chat-flex-input-label">
                             <input class="input-message" name="message" type="text">
 
@@ -48,7 +49,7 @@ $user_id = $_SESSION['user_id'];
                             <button class="input-submit-message" type="submit" onclick="sendMes()">&#10150;</button>
                         </label>
                     </form>
-                    <form action="/handlers/controllers.php" method="post" class="form-clear-history">
+                    <form action="<?= $pathes ?>handlers/controllers.php" method="post" class="form-clear-history">
                         <input type="hidden" name="type" value="clear">
                         <input type="hidden" name="user_id" value="<?= $user_id ?>">
                         <input type="submit" class="clear-history-button" value="Clear">
