@@ -2,16 +2,30 @@
 PHP Chat Bot with machine learning
 
 
-### Data Base
+# Data Base
+Data base for correct work
 [chat-bot.zip](https://github.com/Hevoren/chat-bot/files/11481518/chat-bot.zip)
 
+____
 
-## Guide
+# Installation
+To install and run this project, please follow these steps:
 
-### 1. Clone project - "git clone https://github.com/Hevoren/chat-bot.git"
++ **Step 1: Clone the Project**:\
+    Clone the project by running the following command:
+    ```
+    git clone https://github.com/Hevoren/chat-bot.git
+    ```
++ **Step 2: Install Dependencies**\
+    Install the required dependencies by running the following command:
+    ```
+    composer install
+    ```
 
-### 2. Run in terminal - "composer install"
++ **Step 3: Add extensions**\
+    Add to php.ini in "Exstensions" tab this string - "extension = php_intl.dll"
+  
++ **Step 3: Choose the path**\
+     Change path in "config/path.php"
 
-### 3. Add to php.ini in "Exstensions" tab this string - "extension = php_intl.dll"
-
-### 4. Change path in "config/path.php"
+____
